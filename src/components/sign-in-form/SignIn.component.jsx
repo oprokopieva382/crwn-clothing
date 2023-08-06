@@ -18,9 +18,8 @@ export const SignIn = () => {
   const { email, password } = formFields;
 
   const SignInWithGoogle = async () => {
-     const { user } = await signInGooglePopup();
-    createUserDocFromAuth(user);
-  };
+    await signInGooglePopup();
+   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -34,9 +33,8 @@ export const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await signInUserWithEmailAndPassword(email, password);
-      console.log(response);
-      resetFormFields();
+      await signInUserWithEmailAndPassword(email, password);
+          resetFormFields();
     } catch (err) {
       switch (err.code) {
         case "auth/wrong-password":
@@ -79,6 +77,6 @@ export const SignIn = () => {
           </Button>
         </div>
       </form>
-          </div>
+    </div>
   );
 };
