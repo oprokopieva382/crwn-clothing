@@ -3,6 +3,9 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocFromAuth,
 } from "../../utils/firebase/firebase.utils";
+import { InputForm } from "../input-form/InputForm.component";
+import "./sign-up.scss";
+import { Button } from "../button/Button.component";
 
 const defaultFormFields = {
   displayName: "",
@@ -23,7 +26,7 @@ export const SignUp = () => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -45,42 +48,43 @@ export const SignUp = () => {
   };
 
   return (
-    <div>
-      <h1>Sign up with your email and password</h1>
+    <div className="sign-up-container">
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
-        <label>Display Name</label>
-        <input
+        <InputForm
+          label="Display Name"
           required
           type="text"
           onChange={handleChange}
           name="displayName"
           value={displayName}
         />
-        <label>Email</label>
-        <input
+        <InputForm
+          label="Email"
           required
           type="email"
           onChange={handleChange}
           name="email"
           value={email}
         />
-        <label>Password</label>
-        <input
+        <InputForm
+          label="Password"
           required
           type="password"
           onChange={handleChange}
           name="password"
           value={password}
         />
-        <label>Confirm password</label>
-        <input
+        <InputForm
+          label="Confirm password"
           required
           type="password"
           onChange={handleChange}
           name="confirmPassword"
           value={confirmPassword}
         />
-        <button type="submit">Sign Up</button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
