@@ -4,8 +4,8 @@ import {
   signInGooglePopup,
 } from "../../utils/firebase/firebase.utils";
 import { InputForm } from "../input-form/InputForm.component";
-import { Button } from "../button/Button.component";
-import "./sign-in.scss";
+import { Button, BUTTON_TYPE_CLASSES } from "../button/Button.component";
+import { SignInContainer, ButtonContainer } from "./sign-in";
 
 const defaultFormFields = {
   email: "",
@@ -18,7 +18,7 @@ export const SignIn = () => {
 
   const SignInWithGoogle = async () => {
     await signInGooglePopup();
-   };
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -33,7 +33,7 @@ export const SignIn = () => {
     event.preventDefault();
     try {
       await signInUserWithEmailAndPassword(email, password);
-          resetFormFields();
+      resetFormFields();
     } catch (err) {
       switch (err.code) {
         case "auth/wrong-password":
@@ -49,7 +49,7 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <h1>Already have an account?</h1>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
@@ -69,13 +69,17 @@ export const SignIn = () => {
           name="password"
           value={password}
         />
-        <div className="buttons-container">
+        <ButtonContainer>
           <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={SignInWithGoogle}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={SignInWithGoogle}
+          >
             Google Sign In
           </Button>
-        </div>
+        </ButtonContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
