@@ -9,17 +9,17 @@ export const CartDropDown = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-const goToCheckoutHandler = ()=> {
+  const goToCheckoutHandler = () => {
     navigate("/checkout");
-}
+  };
 
   return (
     <div className="cart-dropdown-container">
-      <div className="cart-item">
+      <div className="cart-items">
         {cartItems.length ? (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         ) : (
-          <span >Your cart is empty</span>
+          <span className="empty-message">Your cart is empty</span>
         )}
       </div>
       <Button onClick={goToCheckoutHandler}>CHECK OUT</Button>
