@@ -19,7 +19,7 @@ const goToCheckoutHandler = ()=> {
         {cartItems.length ? (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         ) : (
-          <span className="empty-message">Your cart is empty</span>
+          <span >Your cart is empty</span>
         )}
       </div>
       <Button onClick={goToCheckoutHandler}>CHECK OUT</Button>
