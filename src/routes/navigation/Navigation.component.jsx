@@ -15,6 +15,7 @@ import { selectIsCartOpen } from "../../store/cartReducer/cart.selector";
 
 export const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
+  console.log(currentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
   const signOutHandler = async () => {
@@ -27,17 +28,13 @@ export const Navigation = () => {
           <CrwnLogo className="logo" />
         </LogoContainer>
         <NavLinks>
-          <NavLink to="/shop">
-            SHOP
-          </NavLink>
+          <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
             <NavLink as="span" onClick={signOutHandler}>
               SIGN OUT
             </NavLink>
           ) : (
-            <NavLink to="/auth">
-              SIGN IN
-            </NavLink>
+            <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
         </NavLinks>
