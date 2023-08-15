@@ -25,6 +25,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalInfo) {
       additionalInfo
     );
     yield put(signInSuccess({ id: userSnapShot.id, ...userSnapShot.data() }));
+   
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -33,7 +34,6 @@ export function* getSnapshotFromUserAuth(userAuth, additionalInfo) {
 export function* isUserAuthenticated() {
   try {
     const userAuth = yield call(getCurrentUser);
-    //console.log(userAuth);
     if (!userAuth) return;
     yield call(getSnapshotFromUserAuth, userAuth);
   } catch (error) {
@@ -49,7 +49,7 @@ export function* signInWithEmailAnsPassword({ payload: { email, password } }) {
       password
     );
     yield call(getSnapshotFromUserAuth, user);
-  } catch (error) {
+     } catch (error) {
     yield put(signInFailed(error));
   }
 }

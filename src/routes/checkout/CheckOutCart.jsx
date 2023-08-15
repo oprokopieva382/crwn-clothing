@@ -6,7 +6,11 @@ import {
 } from "./checkout.styles";
 import { CheckOutCartItem } from "../../components/check-out-cart/CheckOutCartItem.component";
 import { useSelector } from "react-redux";
-import { selectCartItems, selectCartTotal } from "../../store/cartReducer/cart.selector";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cartReducer/cart.selector";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 export const CheckOutCart = () => {
   const cartTotal = useSelector(selectCartTotal);
@@ -38,6 +42,7 @@ export const CheckOutCart = () => {
         <div>Your cart is empty</div>
       )}
       <Total>Total: ${cartTotal}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };
