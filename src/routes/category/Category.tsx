@@ -9,11 +9,17 @@ import {
 } from "../../store/categories/category.selector";
 import { Spinner } from "../../components/spinner/Spinner.component";
 
+type CategoryRouteParamas = {
+  category: string;
+};
+
 export const Category = () => {
-  const { category } = useParams();
+  const { category } = useParams<
+    keyof CategoryRouteParamas
+  >() as CategoryRouteParamas;
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
- 
+
   const [products, setProducts] = useState(categoriesMap[category]);
 
   useEffect(() => {

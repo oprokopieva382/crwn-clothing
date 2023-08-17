@@ -8,11 +8,17 @@ import {
 } from "./product-card.styles";
 import { addItemToCart } from "../../store/cartReducer/cart.action";
 import { selectCartItems } from "../../store/cartReducer/cart.selector";
+import { CategoryItem } from "../../store/categories/category.types";
+import { FC } from "react";
 
-export const ProductCard = ({ product }) => {
+type ProductCardType = {
+  product: CategoryItem
+};
+
+export const ProductCard: FC<ProductCardType> = ({ product }) => {
   const { name, price, imageUrl } = product;
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems)
+  const cartItems = useSelector(selectCartItems);
 
   const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
 

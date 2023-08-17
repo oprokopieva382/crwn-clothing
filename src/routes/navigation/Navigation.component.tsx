@@ -5,6 +5,7 @@ import {
   LogoContainer,
   NavLinks,
   NavLink,
+  SinhOutNavLink,
 } from "./navigation.styles";
 import { CartIcon } from "../../components/cart-icon/CartIcon.component";
 import { CartDropDown } from "../../components/cart-dropdown/CartDropDown.component";
@@ -29,9 +30,9 @@ export const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <NavLink as="span" onClick={signOutHandler}>
+            <SinhOutNavLink onClick={signOutHandler}>
               SIGN OUT
-            </NavLink>
+            </SinhOutNavLink>
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}

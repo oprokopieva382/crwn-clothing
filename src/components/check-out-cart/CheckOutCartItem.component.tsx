@@ -14,14 +14,20 @@ import {
   removeItemFromCart,
 } from "../../store/cartReducer/cart.action";
 import { selectCartItems } from "../../store/cartReducer/cart.selector";
+import { CartItem } from "../../store/cartReducer/cart.types";
+import { FC } from "react";
 
-export const CheckOutCartItem = ({ cartItem }) => {
+type CheckOutCartItemProps = {
+  cartItem: CartItem
+}
 
+export const CheckOutCartItem: FC<CheckOutCartItemProps> = ({ cartItem }) => {
   const { price, name, quantity, imageUrl } = cartItem;
-  const dispatch = useDispatch()
-  const cartItems = useSelector(selectCartItems)
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
-  const addItemToCartHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const addItemToCartHandler = () =>
+    dispatch(addItemToCart(cartItems, cartItem));
   const removeItemHandler = () =>
     dispatch(removeItemFromCart(cartItems, cartItem));
   const clearItemFromCartHandler = () =>

@@ -23,6 +23,11 @@ export const NavLinks = styled.div`
   justify-content: flex-end;
 `;
 
+export const SinhOutNavLink = styled.span`
+  padding: 10px 15px;
+  cursor: pointer;
+`;
+
 export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
