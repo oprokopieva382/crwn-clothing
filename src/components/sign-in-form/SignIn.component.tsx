@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { InputForm } from "../input-form/InputForm.component";
 import { Button, BUTTON_TYPE_CLASSES } from "../button/Button.component";
 import { SignInContainer, ButtonContainer } from "./sign-in";
@@ -22,7 +22,7 @@ export const SignIn = () => {
     dispatch(googleSignInStart());
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
@@ -31,7 +31,7 @@ export const SignIn = () => {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       dispatch(emailSignInStart(email, password));
