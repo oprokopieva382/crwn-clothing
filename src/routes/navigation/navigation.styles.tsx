@@ -23,12 +23,15 @@ export const NavLinks = styled.div`
   justify-content: flex-end;
 `;
 
-export const SinhOutNavLink = styled.span`
-  padding: 10px 15px;
+export const SignOutNavLink = styled.span`
   cursor: pointer;
 `;
 
 export const NavLink = styled(Link)`
-  padding: 10px 15px;
+  padding: 10px 20px;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    padding: 9px;
+  }
 `;

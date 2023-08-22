@@ -5,7 +5,7 @@ import {
   LogoContainer,
   NavLinks,
   NavLink,
-  SinhOutNavLink,
+  SignOutNavLink,
 } from "./navigation.styles";
 import { CartIcon } from "../../components/cart-icon/CartIcon.component";
 import { CartDropDown } from "../../components/cart-dropdown/CartDropDown.component";
@@ -14,7 +14,7 @@ import { selectCurrentUser } from "../../store/userReducer/user.selector";
 import { selectIsCartOpen } from "../../store/cartReducer/cart.selector";
 import { signOutStart } from "../../store/userReducer/user.action";
 
-export const Navigation = () => {
+const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
   const dispatch = useDispatch()
@@ -30,9 +30,9 @@ export const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <SinhOutNavLink onClick={signOutHandler}>
+            <SignOutNavLink onClick={signOutHandler}>
               SIGN OUT
-            </SinhOutNavLink>
+            </SignOutNavLink>
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
@@ -44,3 +44,5 @@ export const Navigation = () => {
     </>
   );
 };
+
+export default Navigation;

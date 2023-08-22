@@ -12,7 +12,7 @@ import {
 } from "../../store/cartReducer/cart.selector";
 import PaymentForm from "../../components/payment-form/payment-form.component";
 
-export const CheckOutCart = () => {
+const CheckOutCart = () => {
   const cartTotal = useSelector(selectCartTotal);
   const cartItems = useSelector(selectCartItems);
   return (
@@ -46,3 +46,5 @@ export const CheckOutCart = () => {
     </CheckoutContainer>
   );
 };
+
+export default CheckOutCart;

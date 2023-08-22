@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { fetchCategoryStart } from "../../store/categories/category.action";
 import { useDispatch } from "react-redux";
 
-export const Shop = () => {
+const Shop = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,7 +15,9 @@ export const Shop = () => {
   return (
     <Routes>
       <Route index element={<CategoriesPreview />} />
-      <Route path="/:category" element={<Category />} />
+      <Route path=":category" element={<Category />} />
     </Routes>
   );
 };
+
+export default Shop;
