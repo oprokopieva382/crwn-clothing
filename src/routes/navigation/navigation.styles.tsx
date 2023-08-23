@@ -30,6 +30,9 @@ export const NavLinks = styled.div`
   @media screen and (max-width: 800px) {
     font-size: 15px;
   }
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
+  }
 `;
 
 export const SignOutNavLink = styled.span`
