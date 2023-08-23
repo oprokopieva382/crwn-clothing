@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { InputForm } from "../input-form/InputForm.component";
-import { SignUpContainer } from "./sign-up";
+import { SignUpContainer } from "./sign-up.styles";
 import { Button } from "../button/Button.component";
 import { useDispatch } from "react-redux";
 import { signUpStart } from "../../store/userReducer/user.action";

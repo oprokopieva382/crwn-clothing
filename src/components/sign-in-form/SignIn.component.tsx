@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { InputForm } from "../input-form/InputForm.component";
 import { Button, BUTTON_TYPE_CLASSES } from "../button/Button.component";
-import { SignInContainer, ButtonContainer } from "./sign-in";
+import { SignInContainer, ButtonContainer } from "./sign-in.styles";
 import { useDispatch } from "react-redux";
 import {
   emailSignInStart,
@@ -52,7 +52,7 @@ export const SignIn = () => {
 
   return (
     <SignInContainer>
-      <h1>Already have an account?</h1>
+      <h2>Already have an account?</h2>
       <span>Sign in with your email and password</span>
       <form onSubmit={handleSubmit}>
         <InputForm
