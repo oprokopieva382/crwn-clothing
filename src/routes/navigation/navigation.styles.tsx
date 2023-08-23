@@ -13,6 +13,11 @@ export const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
   padding: 25px;
+
+  @media screen and (max-width: 800px) {
+    width: 50px;
+    padding: 5px 0px;
+  }
 `;
 
 export const NavLinks = styled.div`
@@ -21,6 +26,10 @@ export const NavLinks = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 export const SignOutNavLink = styled.span`
@@ -32,6 +41,6 @@ export const NavLink = styled(Link)`
   cursor: pointer;
 
   @media screen and (max-width: 800px) {
-    padding: 9px;
+   padding: 20px;
   }
 `;
