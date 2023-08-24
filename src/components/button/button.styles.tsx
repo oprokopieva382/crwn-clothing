@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { SpinnerContainer } from "../spinner/spinner.styles";
 
 export const BaseButton = styled.button`
@@ -27,6 +28,8 @@ export const BaseButton = styled.button`
   }
 `;
 
+BaseButton.displayName = "BaseButton";
+
 export const GoogleSignInButton = styled(BaseButton)`
   background-color: #4285f4;
   color: white;
@@ -36,6 +39,8 @@ export const GoogleSignInButton = styled(BaseButton)`
     border: none;
   }
 `;
+
+GoogleSignInButton.displayName = "GoogleSignInButton";
 
 export const InvertedButton = styled(BaseButton)`
   background-color: white;
@@ -49,7 +54,11 @@ export const InvertedButton = styled(BaseButton)`
   }
 `;
 
+InvertedButton.displayName = "InvertedButton";
+
 export const ButtonSpinner = styled(SpinnerContainer)`
   width: 30px;
   height: 30px;
 `;
+
+ButtonSpinner.displayName = "ButtonSpinner";
