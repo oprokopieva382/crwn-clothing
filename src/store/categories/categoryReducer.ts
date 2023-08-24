@@ -12,14 +12,14 @@ export type CategoriesState = {
   readonly error: Error | null;
 };
 
-const INITIAL_STATE: CategoriesState = {
+export const CATEGORIES_INITIAL_STATE: CategoriesState = {
   categories: [],
   isLoading: false,
   error: null,
 };
 
 export const categoryReducer = (
-  state = INITIAL_STATE,
+  state = CATEGORIES_INITIAL_STATE,
   action: AnyAction
 ) => {
   if (fetchCategoryStart.match(action)) {
