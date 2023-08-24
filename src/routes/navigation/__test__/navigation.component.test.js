@@ -1,7 +1,8 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import { renderWithProviders } from "../../../utils/test/test.utils";
 import Navigation from "../Navigation.component";
-import { setIsCartOpen } from "./../../../store/cartReducer/cart.action";
+import * as rr from "react-redux";
+import { signOutStart } from "../../../store/userReducer/user.action";
 
 describe("Navigation test", () => {
   test("It should render a Sign In link and not Sign Out if there is no currentUser", () => {
@@ -49,16 +50,39 @@ describe("Navigation test", () => {
     expect(dropdownTextElement).toBeInTheDocument();
   });
 
-   test("it should not render a cart dropdown if isCartOpen is false", () => {
-     renderWithProviders(<Navigation />, {
-       preloadedState: {
-         cart: {
-           isCartOpen: false,
-           cartItems: [],
-         },
-       },
-     });
-     const dropdownTextElement = screen.queryByText(/your cart is empty/i);
-     expect(dropdownTextElement).toBeNull();
-   });
+  test("it should not render a cart dropdown if isCartOpen is false", () => {
+    renderWithProviders(<Navigation />, {
+      preloadedState: {
+        cart: {
+          isCartOpen: false,
+          cartItems: [],
+        },
+      },
+    });
+    const dropdownTextElement = screen.queryByText(/your cart is empty/i);
+    expect(dropdownTextElement).toBeNull();
+  });
+
+//   test("it should dispatch signOutState action when clicking on the Sign Out link", async () => {
+//     const mockDispatch = jest.fn();
+//     console.log(rr);
+//     jest.spyOn(rr, "useDispatch").mockReturnValue(mockDispatch);
+
+//     renderWithProviders(<Navigation />, {
+//       preloadedState: {
+//         user: {
+//           currentUser: {},
+//         },
+//       },
+//     });
+//     const signOutLinkElement = screen.getByText(/sign out/i);
+//     console.log(signOutLinkElement);
+//     expect(signOutLinkElement).toBeInTheDocument();
+
+//     await fireEvent.click(signOutLinkElement);
+//     expect(mockDispatch).toHaveBeenCalled();
+//     expect(mockDispatch).toHaveBeenCalledWith(signOutStart());
+
+//     mockDispatch.mockClear();
+//   });
 });
