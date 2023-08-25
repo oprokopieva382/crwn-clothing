@@ -7,13 +7,13 @@ export type CartState = {
   readonly cartItems: CartItem[];
 };
 
-const INITIAL_STATE: CartState = {
+export const CART_INITIAL_STATE: CartState = {
   isCartOpen: false,
   cartItems: [],
 };
 
 export const cartReducer = (
-  state = INITIAL_STATE,
+  state = CART_INITIAL_STATE,
   action: AnyAction
 ): CartState => {
   if (setIsCartOpen.match(action)) {
