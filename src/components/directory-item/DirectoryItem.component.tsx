@@ -13,9 +13,7 @@ type DirectoryItemProps = {
 
 export const DirectoryItem: FC<DirectoryItemProps> = ({ category }) => {
   const { title, imageUrl, route } = category;
-
   const navigate = useNavigate();
-
   const onNavigateHandler = () => navigate(route);
 
   return (
@@ -28,4 +26,3 @@ export const DirectoryItem: FC<DirectoryItemProps> = ({ category }) => {
     </DirectoryItemContainer>
   );
 };
-
